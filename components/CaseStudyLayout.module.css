@@ -1,0 +1,244 @@
+/* ── Hero ── */
+.hero {
+  position: relative;
+  height: 68vh;
+  min-height: 460px;
+  margin-top: 52px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroFade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(8, 6, 4, 0.92) 0%,
+    rgba(8, 6, 4, 0.4) 50%,
+    rgba(8, 6, 4, 0.15) 100%
+  );
+  z-index: 2;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  padding: 0 60px 60px;
+  width: 100%;
+}
+
+.heroTags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.heroTag {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(232, 144, 96, 0.15);
+  border: 0.5px solid rgba(232, 144, 96, 0.4);
+  border-radius: 2px;
+  padding: 4px 10px;
+}
+
+.heroTitle {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+  max-width: 700px;
+}
+
+.heroMeta {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+}
+
+/* ── Content Blocks ── */
+.blocks {
+  background: var(--bg-2);
+}
+
+.block {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.block.reverse {
+  grid-template-columns: 45fr 55fr;
+}
+
+.blockImage {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: var(--bg-3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-right: 0.5px solid var(--border);
+}
+
+.block.reverse .blockImage {
+  border-right: none;
+  border-left: 0.5px solid var(--border);
+  order: 2;
+}
+
+.block.reverse .blockText {
+  order: 1;
+}
+
+.placeholderIcon {
+  width: 32px;
+  height: 32px;
+  opacity: 0.25;
+}
+
+.placeholderLabel {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  opacity: 0.7;
+}
+
+.blockText {
+  padding: 56px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+}
+
+.blockNumber {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 14px;
+}
+
+.blockTitle {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-1);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.blockBody {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-2);
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+.captionWrap {
+  border-top: 0.5px solid var(--border);
+  padding-top: 14px;
+  margin-top: 20px;
+}
+
+.caption {
+  font-size: 13px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text-3);
+  line-height: 1.6;
+}
+
+/* ── Footer Nav ── */
+.footerNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 60px;
+  border-top: 0.5px solid var(--border);
+  background: var(--bg);
+}
+
+.footerNavLink {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footerNavLink:hover {
+  color: var(--accent);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .heroContent {
+    padding: 0 32px 48px;
+  }
+  .blockText {
+    padding: 40px 36px;
+  }
+  .footerNav {
+    padding: 28px 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    height: 55vh;
+    min-height: 380px;
+  }
+  .heroContent {
+    padding: 0 20px 40px;
+  }
+  .block,
+  .block.reverse {
+    grid-template-columns: 1fr;
+  }
+  .blockImage {
+    aspect-ratio: 16/9;
+    border-right: none;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .block.reverse .blockImage {
+    border-left: none;
+    border-bottom: 0.5px solid var(--border);
+    order: 0;
+  }
+  .block.reverse .blockText {
+    order: 1;
+  }
+  .blockText {
+    padding: 32px 20px;
+  }
+  .footerNav {
+    padding: 24px 20px;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
