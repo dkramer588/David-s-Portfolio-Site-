@@ -122,6 +122,14 @@
   border-right: 0.5px solid var(--border);
 }
 
+.blockImageCustom {
+  aspect-ratio: unset;
+  background: none;
+  align-items: stretch;
+  justify-content: stretch;
+  padding: 0;
+}
+
 .block.reverse .blockImage {
   border-right: none;
   border-left: 0.5px solid var(--border);

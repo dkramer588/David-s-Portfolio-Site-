@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import Nav from "./Nav";
 import MetricsBar from "./MetricsBar";
 import Footer from "./Footer";
@@ -18,6 +19,7 @@ export interface ContentBlock {
   caption?: string;
   imagePlaceholder: string;
   imageIcon?: "image" | "video" | "chart";
+  imageContent?: ReactNode;
   reverse?: boolean;
 }
 
@@ -92,9 +94,13 @@ export default function CaseStudyLayout({
       <div className={styles.blocks}>
         {blocks.map((block) => (
           <div key={block.number} className={`${styles.block} ${block.reverse ? styles.reverse : ""}`}>
-            <div className={styles.blockImage}>
-              <PlaceholderIcon type={block.imageIcon} />
-              <span className={styles.placeholderLabel}>{block.imagePlaceholder}</span>
+            <div className={`${styles.blockImage} ${block.imageContent ? styles.blockImageCustom : ""}`}>
+              {block.imageContent ?? (
+                <>
+                  <PlaceholderIcon type={block.imageIcon} />
+                  <span className={styles.placeholderLabel}>{block.imagePlaceholder}</span>
+                </>
+              )}
             </div>
             <div className={styles.blockText}>
               <div className={styles.blockNumber}>{block.number} — {block.label}</div>

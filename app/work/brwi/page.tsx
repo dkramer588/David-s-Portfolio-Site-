@@ -1,4 +1,5 @@
 import CaseStudyLayout from "@/components/CaseStudyLayout";
+import BRWIAudienceVisual from "@/components/BRWIAudienceVisual";
 
 export const metadata = {
   title: "BRWI — Battle Royale Worlds Invitational · David Kramer",
@@ -36,6 +37,7 @@ export default function BRWIPage() {
           caption: "Creator loyalty crossed title lines. The audience was already there — I just needed to meet them where they lived.",
           imagePlaceholder: "Audience Insight Graphic",
           imageIcon: "chart",
+          imageContent: <BRWIAudienceVisual />,
           reverse: true,
         },
         {
