@@ -2,49 +2,33 @@
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 36px;
-  padding: 48px 44px;
+  padding: 40px 36px;
+  gap: 16px;
   background: var(--bg);
-}
-
-/* ── Creators ── */
-.creators {
-  display: flex;
-  gap: 24px;
-  justify-content: space-between;
+  align-items: stretch;
 }
 
 .creator {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
   gap: 12px;
+  min-width: 0;
 }
 
-.avatar {
+.photo {
   position: relative;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: var(--bg-3);
-  border: 0.5px solid var(--border);
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.avatarImg {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  flex: 1;
+  min-height: 200px;
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--bg-3);
 }
 
-.avatarPlaceholder {
-  color: var(--text-3);
-  opacity: 0.5;
+.photoImg {
+  object-fit: cover;
+  object-position: center top;
 }
 
 .creatorInfo {
@@ -62,15 +46,15 @@
 }
 
 .creatorRegion {
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
 }
 
 .creatorFollowers {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 300;
   color: var(--text-2);
   font-variant-numeric: lining-nums tabular-nums;
@@ -81,39 +65,4 @@
   font-weight: 300;
   color: var(--text-3);
   font-style: italic;
-}
-
-/* ── Divider ── */
-.divider {
-  border: none;
-  border-top: 0.5px solid var(--border);
-  margin: 0;
-}
-
-/* ── Orgs ── */
-.orgsLabel {
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-3);
-  margin-bottom: 12px;
-}
-
-.orgs {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.org {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-2);
-  border: 0.5px solid var(--border);
-  border-radius: 2px;
-  padding: 6px 14px;
-  white-space: nowrap;
 }

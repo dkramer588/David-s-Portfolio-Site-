@@ -7,43 +7,28 @@ const creators = [
   { name: "JoeWo",  region: "USA",   followers: "3.2M Followers",  game: "COD: Warzone", img: "/creators/joewo.jpg" },
 ];
 
-const orgs = ["NRG", "Tribe Gaming", "Call of Duty League"];
-
 export default function BRWIAudienceVisual() {
   return (
     <div className={styles.wrap}>
-      <div className={styles.creators}>
-        {creators.map((c) => (
-          <div key={c.name} className={styles.creator}>
-            <div className={styles.avatar}>
-              <Image
-                src={c.img}
-                alt={c.name}
-                fill
-                sizes="80px"
-                className={styles.avatarImg}
-              />
-            </div>
-            <div className={styles.creatorInfo}>
-              <div className={styles.creatorName}>{c.name}</div>
-              <div className={styles.creatorRegion}>{c.region}</div>
-              <div className={styles.creatorFollowers}>{c.followers}</div>
-              <div className={styles.creatorGame}>{c.game}</div>
-            </div>
+      {creators.map((c) => (
+        <div key={c.name} className={styles.creator}>
+          <div className={styles.photo}>
+            <Image
+              src={c.img}
+              alt={c.name}
+              fill
+              sizes="(max-width: 768px) 90vw, 20vw"
+              className={styles.photoImg}
+            />
           </div>
-        ))}
-      </div>
-
-      <hr className={styles.divider} />
-
-      <div>
-        <div className={styles.orgsLabel}>Partner Organizations</div>
-        <div className={styles.orgs}>
-          {orgs.map((o) => (
-            <span key={o} className={styles.org}>{o}</span>
-          ))}
+          <div className={styles.creatorInfo}>
+            <div className={styles.creatorName}>{c.name}</div>
+            <div className={styles.creatorRegion}>{c.region}</div>
+            <div className={styles.creatorFollowers}>{c.followers}</div>
+            <div className={styles.creatorGame}>{c.game}</div>
+          </div>
         </div>
-      </div>
+      ))}
     </div>
   );
 }
