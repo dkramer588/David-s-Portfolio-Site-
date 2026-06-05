@@ -9,58 +9,63 @@ export const metadata = {
 export default function BRWIPage() {
   return (
     <CaseStudyLayout
-      tags={["Community", "Influencer"]}
+      tags={["Influencer", "Community", "Social"]}
       title="Battle Royale Worlds Invitational"
+      subtitle="A global creator tournament built for COD: Mobile's second anniversary — 200 creators across 4 regions, pairing our talent with top names from competing titles. No paid media. Pure organic reach that converted competitor audiences into COD: Mobile players at scale."
       meta="COD: Mobile"
-      subtitle="To mark COD: Mobile's second anniversary, I built a global creator tournament that brought together 200 creators from across the mobile shooter landscape — converting competitor title audiences into COD: Mobile players through organic content alone."
-      heroBg="linear-gradient(160deg, #180808 0%, #300f0f 55%, #110404 100%)"
+      heroBg="linear-gradient(135deg, #180808 0%, #2e0e0e 50%, #120404 100%)"
       metrics={[
-        { value: "+30%", label: "DAU Increase" },
-        { value: "12M+", label: "Organic Impressions" },
-        { value: "200",  label: "Creators Activated" },
-        { value: "4",    label: "Global Regions" },
+        { value: "+30%", label: "DAU Increase",         accent: true },
+        { value: "12M+", label: "Organic Impressions",  accent: true },
+        { value: "200",  label: "Creators",             accent: true },
+        { value: "4",    label: "Global Regions",       accent: true },
       ]}
       blocks={[
         {
           number: "01",
           label: "The Moment",
-          title: "An anniversary worth showing up for",
+          title: "More than a content drop",
           body: "COD: Mobile's second anniversary needed to be more than a content drop. I set out to build a cultural moment in mobile gaming that would re-engage lapsed players and pull high-value audiences in from competing titles.",
-          imagePlaceholder: "BRWI Key Art",
+          caption: "Branded in red — a deliberate shift away from COD: Mobile's signature yellow to signal this was a mobile gaming moment, not just a COD campaign.",
+          imagePlaceholder: "Campaign Key Art",
+          imageBg: "linear-gradient(145deg, #0e0a06 0%, #1e140a 60%, #120c06 100%)",
           imageIcon: "image",
+          reverse: true,
         },
         {
           number: "02",
           label: "The Audience",
-          title: "One community, four games",
+          title: "One audience across four titles",
           body: "I identified that mobile shooter fans already moved fluidly between titles — watching creators across COD, PUBG, Free Fire, and Apex, and running multiple games simultaneously. This wasn't four separate communities. It was one audience waiting to be spoken to directly.",
           caption: "Creator loyalty crossed title lines. The audience was already there — I just needed to meet them where they lived.",
-          imagePlaceholder: "Audience Insight Graphic",
-          imageIcon: "chart",
+          imagePlaceholder: "Creator Roster",
           imageContent: <BRWIAudienceVisual />,
-          reverse: true,
+          altBg: true,
         },
         {
           number: "03",
           label: "The Program",
-          title: "Built for organic, designed for reach",
-          body: "I designed and built a global creator tournament pairing COD: Mobile talent with top creators from competing titles across four regions. No paid amplification. No overt call to action. Organic gameplay content dropped into feeds I'd never otherwise reach.",
+          title: "200 creators. Four regions. One format.",
+          body: "I designed and built a global creator tournament pairing COD: Mobile talent with top creators from competing titles across four regions. No paid amplification. No overt call to action. Organic gameplay content dropped into feeds I'd never otherwise reach — through voices those audiences already trusted.",
           caption: "200 creators. Four regions. One format built entirely around organic content and creator chemistry.",
-          imagePlaceholder: "Broadcast Still",
+          imagePlaceholder: "Tournament Broadcast Still",
+          imageBg: "linear-gradient(145deg, #100808 0%, #220f0f 60%, #140606 100%)",
           imageIcon: "video",
+          reverse: true,
         },
         {
           number: "04",
           label: "The Result",
-          title: "Competitor audiences converted at scale",
+          title: "Converting competitors into players",
           body: "The event drove a 30% DAU increase and generated 12M+ organic impressions — converting competitor title audiences into COD: Mobile players at scale.",
           caption: "A marketing beat that paid for itself in player acquisition from audiences outside our own ecosystem.",
-          imagePlaceholder: "Results Graphic",
+          imagePlaceholder: "Results Broadcast Highlight",
+          imageBg: "linear-gradient(145deg, #080e06 0%, #142010 60%, #081008 100%)",
           imageIcon: "chart",
-          reverse: true,
+          altBg: true,
         },
       ]}
-      prevSlug={{ href: "/#work", label: "All Work" }}
+      prevSlug={{ href: "/#work", label: "Back to Case Studies" }}
       nextSlug={{ href: "/work/codm-esports", label: "COD:M Esports" }}
     />
   );

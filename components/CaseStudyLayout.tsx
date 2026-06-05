@@ -16,11 +16,13 @@ export interface ContentBlock {
   label: string;
   title: string;
   body: string;
-  caption?: string;
+  caption?: string;           // appears below the image
   imagePlaceholder: string;
+  imageBg?: string;           // custom gradient for placeholder bg
   imageIcon?: "image" | "video" | "chart";
-  imageContent?: ReactNode;
-  reverse?: boolean;
+  imageContent?: ReactNode;   // replaces placeholder with custom component
+  reverse?: boolean;          // image on right
+  altBg?: boolean;            // text column uses --bg-2
 }
 
 export interface CaseStudyProps {
@@ -82,8 +84,8 @@ export default function CaseStudyLayout({
             ))}
           </div>
           <h1 className={styles.heroTitle}>{title}</h1>
-          <div className={styles.heroMeta}>{meta}</div>
           {subtitle && <p className={styles.heroSubtitle}>{subtitle}</p>}
+          <p className={styles.heroMeta}>{meta}</p>
         </div>
       </section>
 
@@ -93,24 +95,33 @@ export default function CaseStudyLayout({
       {/* Content Blocks */}
       <div className={styles.blocks}>
         {blocks.map((block) => (
-          <div key={block.number} className={`${styles.block} ${block.reverse ? styles.reverse : ""}`}>
-            <div className={`${styles.blockImage} ${block.imageContent ? styles.blockImageCustom : ""}`}>
-              {block.imageContent ?? (
-                <>
-                  <PlaceholderIcon type={block.imageIcon} />
-                  <span className={styles.placeholderLabel}>{block.imagePlaceholder}</span>
-                </>
+          <div
+            key={block.number}
+            className={`${styles.block} ${block.reverse ? styles.reverse : ""}`}
+          >
+            {/* Visual column: image (or custom) + caption below */}
+            <div className={styles.blockVisual}>
+              <div
+                className={`${styles.blockImage} ${block.imageContent ? styles.blockImageCustom : ""}`}
+                style={block.imageBg && !block.imageContent ? { background: block.imageBg } : undefined}
+              >
+                {block.imageContent ?? (
+                  <>
+                    <PlaceholderIcon type={block.imageIcon} />
+                    <span className={styles.placeholderLabel}>{block.imagePlaceholder}</span>
+                  </>
+                )}
+              </div>
+              {block.caption && (
+                <p className={styles.blockCaption}>{block.caption}</p>
               )}
             </div>
-            <div className={styles.blockText}>
+
+            {/* Text column */}
+            <div className={`${styles.blockText} ${block.altBg ? styles.altBg : ""}`}>
               <div className={styles.blockNumber}>{block.number} — {block.label}</div>
               <h2 className={styles.blockTitle}>{block.title}</h2>
               <p className={styles.blockBody}>{block.body}</p>
-              {block.caption && (
-                <div className={styles.captionWrap}>
-                  <p className={styles.caption}>{block.caption}</p>
-                </div>
-              )}
             </div>
           </div>
         ))}
@@ -118,12 +129,12 @@ export default function CaseStudyLayout({
 
       {/* Footer Nav */}
       <div className={styles.footerNav}>
-        {prevSlug ? (
-          <Link href={prevSlug.href} className={styles.footerNavLink}>← {prevSlug.label}</Link>
-        ) : <span />}
-        {nextSlug ? (
-          <Link href={nextSlug.href} className={styles.footerNavLink}>{nextSlug.label} →</Link>
-        ) : <span />}
+        {prevSlug
+          ? <Link href={prevSlug.href} className={styles.footerNavLink}>← {prevSlug.label}</Link>
+          : <span />}
+        {nextSlug
+          ? <Link href={nextSlug.href} className={styles.footerNavLink}>{nextSlug.label} →</Link>
+          : <span />}
       </div>
 
       <Footer />
