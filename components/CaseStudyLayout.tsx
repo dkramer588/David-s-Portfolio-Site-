@@ -71,6 +71,7 @@ export default function CaseStudyLayout({
       <section className={styles.hero}>
         <div className={styles.heroBg} style={{ background: heroBg }} />
         <div className={styles.heroFade} />
+        <div className={styles.heroWatermark}>{title}</div>
         <div className={styles.heroContent}>
           <div className={styles.heroTags}>
             {tags.map((t) => (
