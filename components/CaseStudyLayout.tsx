@@ -25,6 +25,7 @@ export interface CaseStudyProps {
   tags: string[];
   title: string;
   meta: string;
+  subtitle?: string;
   heroBg: string;
   metrics: Metric[];
   blocks: ContentBlock[];
@@ -61,7 +62,7 @@ function PlaceholderIcon({ type }: { type?: "image" | "video" | "chart" }) {
 }
 
 export default function CaseStudyLayout({
-  tags, title, meta, heroBg, metrics, blocks, prevSlug, nextSlug,
+  tags, title, meta, subtitle, heroBg, metrics, blocks, prevSlug, nextSlug,
 }: CaseStudyProps) {
   return (
     <>
@@ -80,6 +81,7 @@ export default function CaseStudyLayout({
           </div>
           <h1 className={styles.heroTitle}>{title}</h1>
           <div className={styles.heroMeta}>{meta}</div>
+          {subtitle && <p className={styles.heroSubtitle}>{subtitle}</p>}
         </div>
       </section>
 

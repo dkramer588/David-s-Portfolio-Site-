@@ -10,7 +10,8 @@ export default function BRWIPage() {
     <CaseStudyLayout
       tags={["Community", "Influencer"]}
       title="Battle Royale Worlds Invitational"
-      meta="COD: Mobile · 2021"
+      meta="COD: Mobile"
+      subtitle="To mark COD: Mobile's second anniversary, I built a global creator tournament that brought together 200 creators from across the mobile shooter landscape — converting competitor title audiences into COD: Mobile players through organic content alone."
       heroBg="linear-gradient(160deg, #180808 0%, #300f0f 55%, #110404 100%)"
       metrics={[
         { value: "+30%", label: "DAU Increase" },
