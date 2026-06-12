@@ -27,27 +27,32 @@
 }
 
 .thumbEsports {
-  background: linear-gradient(160deg, #0d1520 0%, #1a2c42 55%, #0a1018 100%);
+  background-image: url(/Home%20Page%20Case%20Study%20Images/CASE-Esports.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .thumbSeasons {
-  background: linear-gradient(160deg, #1a1005 0%, #2e1e0a 55%, #120b03 100%);
+  background-image: url(/Home%20Page%20Case%20Study%20Images/CASE-Train.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .thumbBrwi {
-  background: linear-gradient(160deg, #180808 0%, #300f0f 55%, #110404 100%);
-}
-
-.thumbRust {
-  background: linear-gradient(160deg, #0c1205 0%, #1c2c0a 55%, #090e03 100%);
+  background-image: url(/Home%20Page%20Case%20Study%20Images/CASE-BRWI2.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .thumbPending {
-  background: var(--bg-3);
+  background-image: url(/Home%20Page%20Case%20Study%20Images/CASE-COEUR.jpg);
+  background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 
 .pendingLabel {
   font-size: 9px;
@@ -62,9 +67,6 @@
   inset: 0;
   background: rgba(232, 144, 96, 0);
   transition: background 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .item:hover .overlay {
@@ -72,13 +74,21 @@
 }
 
 .overlayCta {
+  position: absolute;
+  top: 14px;
+  left: 14px;
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #fff;
+  background: rgba(0, 0, 0, 0.45);
+  border: 0.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+  padding: 6px 12px;
+  backdrop-filter: blur(4px);
   opacity: 0;
-  transform: translateY(6px);
+  transform: translateY(-4px);
   transition: all 0.25s ease;
 }
 

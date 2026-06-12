@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "./globals.css";
+import ScrollRestoration from "@/components/ScrollRestoration";
 
 const raleway = Raleway({
   variable: "--font-raleway",
@@ -21,7 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={raleway.variable}>
-      <body>{children}</body>
+      <body>
+        <ScrollRestoration />
+        {children}
+      </body>
     </html>
   );
 }

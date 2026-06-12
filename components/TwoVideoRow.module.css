@@ -1,0 +1,38 @@
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  background: var(--bg);
+  padding: 0 72px;
+}
+
+.videoWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.videoBox {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0a0808;
+}
+
+.caption {
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-2);
+  line-height: 1.6;
+  padding: 14px 0 32px;
+}
+
+@media (max-width: 900px) {
+  .row {
+    grid-template-columns: 1fr;
+    padding: 0 24px;
+  }
+  .caption {
+    padding: 14px 0 32px;
+  }
+}

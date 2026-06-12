@@ -17,12 +17,21 @@
 .heroFade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(8, 6, 4, 0.88) 0%,
-    rgba(8, 6, 4, 0.5) 60%,
-    transparent 100%
-  );
+  background:
+    linear-gradient(
+      to right,
+      rgba(6, 3, 3, 0.96) 0%,
+      rgba(6, 3, 3, 0.82) 45%,
+      rgba(6, 3, 3, 0.45) 70%,
+      rgba(6, 3, 3, 0.15) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(6, 3, 3, 0.3) 0%,
+      transparent 40%,
+      transparent 60%,
+      rgba(6, 3, 3, 0.5) 100%
+    );
   z-index: 2;
 }
 
@@ -83,15 +92,49 @@
   letter-spacing: 0.10em;
   color: rgba(255, 255, 255, 0.35);
   text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
 .heroSubtitle {
-  font-size: 13px;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 17px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.88);
   line-height: 1.75;
-  max-width: 560px;
+  max-width: 520px;
   margin-top: 14px;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+}
+
+/* ── Tab Row ── */
+.tabRow {
+  display: flex;
+  gap: 0;
+  background: var(--bg);
+  padding: 0 72px;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.tabItem {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  text-decoration: none;
+  padding: 16px 20px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  display: inline-block;
+}
+
+.tabItem:hover {
+  color: var(--text-1);
+}
+
+.tabItemActive {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  cursor: default;
 }
 
 /* ── Content Blocks ── */
@@ -99,11 +142,33 @@
   background: var(--bg);
 }
 
+/* text-only full-width row (no image column) */
+.blockTextOnlyRow {
+  padding: 64px 72px;
+  background: var(--bg);
+  max-width: 720px;
+}
+
 .block {
   display: grid;
   grid-template-columns: 45fr 55fr;
-  border-bottom: 0.5px solid var(--border);
   min-height: 460px;
+}
+
+.blockNoBorder {
+  border-bottom: none;
+}
+
+.blockCompact {
+  min-height: 280px;
+}
+
+.blockCompact .blockImage {
+  min-height: 240px;
+}
+
+.blockCompact .blockText {
+  padding: 44px 52px;
 }
 
 .block.reverse {
@@ -114,12 +179,11 @@
 .blockVisual {
   display: flex;
   flex-direction: column;
-  border-right: 0.5px solid var(--border);
+  min-width: 0;
+  overflow: hidden;
 }
 
 .block.reverse .blockVisual {
-  border-right: none;
-  border-left: 0.5px solid var(--border);
   order: 2;
 }
 
@@ -130,20 +194,37 @@
 .blockImage {
   flex: 1;
   min-height: 360px;
-  background: var(--bg-3);
+  background: var(--bg);
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 10px;
+  padding: 16px;
 }
 
-/* custom content (e.g. creator cards) — fills naturally */
+/* inner frame — fill image positions within this, giving the inset effect */
+.blockImageFrame {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+/* custom content (e.g. creator cards, YouTube embeds) — fills naturally, no inset padding */
 .blockImageCustom {
   background: none;
   align-items: stretch;
   justify-content: stretch;
+  padding: 0;
+}
+
+.realImage {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
 }
 
 .placeholderIcon {
@@ -160,15 +241,20 @@
   color: rgba(255, 255, 255, 0.2);
 }
 
+/* caption pulled up to overlap bottom of image frame */
+.blockCaptionOverlay {
+  position: relative;
+  z-index: 2;
+}
+
 /* caption lives below the image */
 .blockCaption {
-  font-size: 11px;
-  font-weight: 300;
+  font-size: 13px;
+  font-weight: 400;
   font-style: italic;
-  color: var(--text-3);
+  color: var(--text-2);
   line-height: 1.6;
-  padding: 14px 24px;
-  border-top: 0.5px solid var(--border);
+  padding: 14px 24px 32px;
 }
 
 /* text column */
@@ -178,10 +264,11 @@
   flex-direction: column;
   justify-content: center;
   background: var(--bg);
+  min-width: 0;
 }
 
 .blockText.altBg {
-  background: var(--bg-2);
+  background: var(--bg);
 }
 
 .blockNumber {
@@ -203,10 +290,142 @@
 }
 
 .blockBody {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 300;
   color: var(--text-2);
-  line-height: 1.85;
+  line-height: 1.8;
+}
+
+.blockBody p { margin-bottom: 16px; }
+.blockBody p:last-child { margin-bottom: 0; }
+
+.blockBody ul {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.blockBody ul li {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--text-1);
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  border-left: 2px solid var(--accent);
+  padding-left: 14px;
+}
+
+/* ── Positioning Statement ── */
+.positioningBar {
+  background: var(--bg);
+  padding: 80px 72px;
+  text-align: center;
+}
+
+.positioningText {
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--text-1);
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+  letter-spacing: -0.01em;
+}
+
+/* ── Graph Panel ── */
+.graphPanel {
+  background: var(--bg);
+  padding: 56px 72px;
+}
+
+.graphInner {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  aspect-ratio: 21 / 9;
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--bg-2);
+}
+
+.graphImg {
+  object-fit: contain;
+  object-position: center;
+}
+
+/* ── Video Panel ── */
+.videoPanel {
+  background: var(--bg);
+  padding: 56px 72px;
+  display: flex;
+  justify-content: center;
+}
+
+.videoCard {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 860px;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  overflow: hidden;
+  text-decoration: none;
+  background: #0a0808;
+  cursor: pointer;
+}
+
+.videoCardImg {
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.videoCard:hover .videoCardImg {
+  transform: scale(1.03);
+}
+
+.videoCardPlaceholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #180808 0%, #2e0e0e 100%);
+}
+
+.videoCardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(6,3,3,0.55) 0%,
+    transparent 40%,
+    rgba(6,3,3,0.2) 100%
+  );
+}
+
+.videoCardLabel {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(0,0,0,0.45);
+  border: 0.5px solid rgba(255,255,255,0.25);
+  padding: 7px 14px;
+  border-radius: 2px;
+  backdrop-filter: blur(4px);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.videoCard:hover .videoCardLabel {
+  background: rgba(232,144,96,0.75);
+  border-color: transparent;
 }
 
 /* ── Footer Nav ── */
@@ -215,7 +434,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 40px 72px;
-  border-top: 0.5px solid var(--border);
   background: var(--bg);
 }
 
@@ -238,33 +456,64 @@
   .heroContent { padding: 0 32px; }
   .blockText { padding: 40px 36px; }
   .footerNav { padding: 28px 32px; }
+  .tabRow { padding: 0 32px; }
+  .graphPanel { padding: 40px 32px; }
+  .videoPanel { padding: 40px 32px; }
+  .blockTextOnlyRow { padding: 48px 32px; }
 }
 
-@media (max-width: 767px) {
-  .hero { height: 280px; }
-  .heroContent { padding: 0 20px; }
-  .heroTitle { white-space: normal; }
-
+/* Two-column blocks collapse to single column at 900px */
+@media (max-width: 900px) {
   .block,
   .block.reverse {
     grid-template-columns: 1fr;
     min-height: unset;
   }
-  .blockVisual {
-    border-right: none;
-    border-bottom: 0.5px solid var(--border);
-  }
-  .block.reverse .blockVisual {
-    border-left: none;
-    border-bottom: 0.5px solid var(--border);
-    order: 0;
-  }
+
+  /* Media always stacks above text */
+  .block.reverse .blockVisual { order: 0; }
   .block.reverse .blockText { order: 1; }
-  .blockImage { min-height: 220px; }
-  .blockText { padding: 32px 20px; }
-  .footerNav {
-    padding: 24px 20px;
-    flex-direction: column;
-    gap: 16px;
+
+  /* Image column: replace fixed min-height with aspect-ratio */
+  .blockImage {
+    flex: unset;
+    width: 100%;
+    min-height: unset;
+    aspect-ratio: 4 / 3;
   }
+
+  /* YouTube / custom-content blocks: 16:9 */
+  .blockImageCustom {
+    aspect-ratio: 16 / 9;
+  }
+
+  .blockCompact .blockImage {
+    aspect-ratio: 16 / 9;
+    min-height: unset;
+  }
+
+  /* blockImageFrame must fill the aspect-ratio box */
+  .blockImageFrame {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* Make blockImage the positioning context for the frame */
+  .blockImage {
+    position: relative;
+  }
+
+  .blockText { padding: 32px 24px; }
+  .blockTextOnlyRow { padding: 40px 24px; }
+  .tabRow { padding: 0 16px; }
+  .graphPanel { padding: 32px 24px; }
+  .videoPanel { padding: 32px 24px; }
+  .footerNav { padding: 24px; flex-direction: column; gap: 16px; }
+}
+
+/* Smaller mobile: hero height + hero text */
+@media (max-width: 767px) {
+  .hero { height: 260px; }
+  .heroContent { padding: 0 20px; }
+  .heroTitle { white-space: normal; }
 }

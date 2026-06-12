@@ -1,6 +1,7 @@
 .section {
-  padding: 80px 52px 100px;
+  padding: 72px 52px;
   background: var(--bg);
+  border-top: 0.5px solid var(--border);
 }
 
 .header {
@@ -35,7 +36,7 @@
 
 @media (max-width: 1023px) and (min-width: 768px) {
   .section {
-    padding: 80px 32px 100px;
+    padding: 72px 32px;
   }
   .grid {
     grid-template-columns: repeat(2, 1fr);
@@ -44,7 +45,7 @@
 
 @media (max-width: 767px) {
   .section {
-    padding: 60px 20px 80px;
+    padding: 52px 20px;
   }
   .grid {
     grid-template-columns: 1fr;

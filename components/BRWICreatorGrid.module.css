@@ -1,0 +1,144 @@
+/* ── Outer wrapper: two-column layout ── */
+.wrap {
+  display: grid;
+  grid-template-columns: 42fr 58fr;
+  border-top: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+  min-height: 460px;
+}
+
+/* ── Left panel: creators ── */
+.creatorsPanel {
+  padding: 48px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 0.5px solid var(--border);
+  background: var(--bg-2);
+}
+
+.panelLabel {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 32px;
+}
+
+.creatorList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.creatorCard {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.creatorPhoto {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--bg-3);
+}
+
+.creatorImg {
+  object-fit: cover;
+  object-position: top center;
+}
+
+.creatorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.creatorName {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-1);
+}
+
+.creatorGame {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-2);
+}
+
+.creatorMeta {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--text-3);
+}
+
+/* ── Right panel: 4×2 image grid ── */
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.gridCell {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-3);
+  overflow: hidden;
+  border-left: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+}
+
+.gridCell:nth-child(n+5) {
+  border-bottom: none;
+}
+
+.gridImg {
+  object-fit: cover;
+}
+
+/* Placeholder shown when no image loaded */
+.gridPlaceholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gridPlaceholderNum {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--text-3);
+  opacity: 0.4;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .creatorsPanel { padding: 32px 28px; }
+}
+
+@media (max-width: 767px) {
+  .wrap {
+    grid-template-columns: 1fr;
+  }
+  .creatorsPanel {
+    border-right: none;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .imageGrid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+  .gridCell:nth-child(n+5) {
+    border-bottom: 0.5px solid var(--border);
+  }
+  .gridCell:nth-child(n+7) {
+    border-bottom: none;
+  }
+}

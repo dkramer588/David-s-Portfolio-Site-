@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "portfolio",
-      "runtimeExecutable": "/tmp/node-v22.12.0-darwin-x64/bin/npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeExecutable": "/Users/davidkramer/Desktop/Portfolio site files for Claude Code. files/david-kramer-portfolio/.claude/start.sh",
+      "runtimeArgs": [],
       "port": 3000
     }
   ]

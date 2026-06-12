@@ -1,0 +1,123 @@
+.outer {
+}
+
+/* ── Grid image (single composed image) ── */
+.imageGridWrap {
+  padding: 64px 72px 48px;
+  background: var(--bg);
+}
+
+.imageGridInner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 32 / 9;
+  background: var(--bg-3);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.gridImg {
+  object-fit: cover;
+}
+
+.gridPlaceholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gridPlaceholderLabel {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  opacity: 0.5;
+}
+
+/* ── Group photo ── */
+.groupPhoto {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.groupPhotoImg {
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* ── Creator spotlight ── */
+.creatorsWrap {
+  padding: 40px 72px;
+  background: var(--bg);
+}
+
+.creatorsLabel {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 24px;
+}
+
+.creatorsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 220px));
+  gap: 16px;
+}
+
+.card {
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 5 / 2;
+}
+
+.photoImg {
+  object-fit: cover;
+  object-position: top center;
+}
+
+.info {
+  padding: 14px 16px;
+}
+
+.name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-1);
+  margin-bottom: 4px;
+}
+
+.meta {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--text-3);
+  line-height: 1.5;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .creatorsWrap { padding: 32px 36px; }
+}
+
+@media (max-width: 1023px) {
+  .imageGridWrap { padding: 48px 36px 36px; }
+}
+
+@media (max-width: 767px) {
+  .imageGridWrap { padding: 32px 20px 24px; }
+  .creatorsWrap { padding: 28px 20px; }
+  .creatorsGrid { grid-template-columns: 1fr; }
+}

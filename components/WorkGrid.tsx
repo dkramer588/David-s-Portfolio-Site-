@@ -4,37 +4,30 @@ import WorkCard from "./WorkCard";
 const works = [
   {
     slug: "codm-esports",
-    tag: "Community",
-    title: "COD:M Esports",
-    desc: "Launched Activision's first mobile esports program — from zero to a licensed property spanning five regions.",
+    tag: "Brand Building",
+    title: "Activision's First Mobile Esports Program",
+    desc: "Launched from zero to a licensed property spanning five regions.",
     thumbVariant: "esports" as const,
   },
   {
-    slug: "season-launches",
-    tag: "Social",
-    title: "Season Launches",
-    desc: "Social strategy at scale across 30+ seasons of COD: Mobile live service.",
+    slug: "seasons",
+    tag: "Creative Strategy",
+    title: "Train To Nowhere",
+    desc: "A Bond-inspired spy universe. COD: Mobile's first Clio Award.",
     thumbVariant: "seasons" as const,
   },
   {
     slug: "brwi",
     tag: "Influencer",
-    title: "BRWI",
+    title: "Battle Royale Worlds Invitational",
     desc: "Cross-community influencer architecture. +30% DAU, 12M+ organic impressions.",
     thumbVariant: "brwi" as const,
   },
   {
-    slug: "beneath-the-rust",
-    tag: "Brand Strategy",
-    title: "Beneath The Rust",
-    desc: "Brand built from zero outside gaming — social-first community flywheel from launch to film release.",
-    thumbVariant: "rust" as const,
-  },
-  {
-    slug: "coming-soon",
-    tag: "Pending",
-    title: "Cour Sports",
-    desc: "",
+    slug: "coeur-sports",
+    tag: "Paid Media & Social",
+    title: "Coeur Sports",
+    desc: "Direct response video + community content strategy. 8.48x ROAS, 10.28% profit lift.",
     thumbVariant: "pending" as const,
   },
 ];
@@ -43,8 +36,8 @@ export default function WorkGrid() {
   return (
     <section className={styles.section} id="work">
       <div className={styles.header}>
-        <span className={styles.label}>Selected Work</span>
-        <span className={styles.count}>4 Case Studies</span>
+        <span className={styles.label}>Case Studies</span>
+        <span className={styles.count}>Selected Work</span>
       </div>
       <div className={styles.grid}>
         {works.map((work, i) => (
