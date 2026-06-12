@@ -69,7 +69,7 @@ export default function CoeurSportsPage() {
             </>
           ),
           imagePlaceholder: "Result",
-          imageSrc: "/Coeur%20Sports/CS-gif.gif",
+          imageSrc: "/Coeur%20Sports/CS-gif01.gif",
         },
       ]}
       prevSlug={{ href: "/work/seasons", label: "Train To Nowhere" }}
