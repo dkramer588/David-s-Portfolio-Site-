@@ -10,7 +10,7 @@ export default function SeasonsPage() {
     <CaseStudyLayout
       tags={["Creative", "Social", "Product Marketing"]}
       title="Train To Nowhere"
-      subtitle="I conceived and built a Bond-inspired spy universe from scratch, unifying a seasonal game theme and a new subscription product under one creative platform, and one world that players wanted to belong to."
+      subtitle="While leading 30+ season launches, developing this Bond-inspired spy universe was my favorite. My positioning and creative unified a game theme and a new subscription model to build a world players showed up for."
       meta="COD: Mobile · Season 8"
       metaColor="rgba(255, 198, 0, 0.65)"
       heroBg="linear-gradient(135deg, #080c18 0%, #0e1a2e 50%, #04080f 100%)"
